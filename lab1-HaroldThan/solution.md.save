@@ -1,0 +1,15 @@
+<h1> Solution For LAB 1</h1>
+
+A: grep -E 'NH' vaccine.csv | grep -E 0[5]{1}/[0-9]{2}/[0-9]{4}   
+
+B: cut -d "," -f 4,5,6 vaccine.csv
+
+C: grep -E 05/1[5-7]{1}/[0-9]{4} vaccine.csv
+
+D: awk -F , '$6 =="0"' vaccine.csv | grep CA | cut -d "," -f 4  
+
+E:  awk -F , '$6 =="0"' vaccine.csv | cut -d "," -f 5,6 | sort | uniq -c | sort -nr
+
+F:
+
+G:echo "|Country|State|Fully-Vaccinated People|"; cat vaccine.csv| grep -E 06/29/2021| sort -t, -k6,6 -nr| awk -F ',' '{print "|"$4"|"$5"|"$6"|"}'| head -10                                                                               
